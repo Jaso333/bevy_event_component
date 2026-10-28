@@ -75,6 +75,9 @@ where
     }
 }
 
+/// Required to make BSN happy.
+impl<E> Unpin for EventComponent<E> where E: EntityEvent + Clone {}
+
 /// Extends [`Ref`] to [`ComponentEvent`] allowing the system to determine when the event is triggered.
 pub trait EventComponentRefExt<E> {
     /// Gets the event only if it has been triggered.
